@@ -22317,6 +22317,7 @@
 	
 	
 	      return employeeIDs.map(function (id) {
+	        console.log(id);
 	        return _react2.default.createElement(_Thumbnail2.default, _extends({ key: id }, profileInformation[id], { id: id }));
 	      });
 	    }
@@ -26045,7 +26046,6 @@
 	          description = _props.description,
 	          id = _props.id;
 	
-	      console.log(this.props);
 	      dispatch(actions.addProfile(id, name, description, pictureUrl));
 	      dispatch(actions.updateLastClickedThumbnail(id));
 	    }
@@ -26059,18 +26059,23 @@
 	          id = _props2.id,
 	          lastThumbNail = _props2.lastThumbNail;
 	
-	      return _react2.default.createElement(
-	        'div',
-	        { className: '1u thumbnail-row thumbnail-absolute ' + (lastThumbNail === id ? 'tn-position-' + id : ''),
-	          style: { left: id * 100 / 12 + '%' } },
-	        _react2.default.createElement(
-	          'span',
-	          { className: 'image fit thumbnail' },
-	          _react2.default.createElement('img', { src: 'images/' + pictureUrl + '.jpg', alt: '', onClick: function onClick() {
-	              return _this2.sendThumbnailToState();
-	            } })
-	        )
-	      );
+	      console.log(id, pictureUrl, id, lastThumbNail);
+	      if (pictureUrl) {
+	        return _react2.default.createElement(
+	          'div',
+	          { id: 'thumbnail-row', className: '1u thumbnail-absolute ' + (lastThumbNail === id ? 'tn-position-' + id : ''),
+	            style: { left: id * 100 / 12 % 100 + '%', top: Math.floor(id / 12) * 30 + '%' } },
+	          _react2.default.createElement(
+	            'span',
+	            { className: 'image fit thumbnail' },
+	            _react2.default.createElement('img', { src: 'images/' + pictureUrl + '.jpg', alt: '', onClick: function onClick() {
+	                return _this2.sendThumbnailToState();
+	              } })
+	          )
+	        );
+	      } else {
+	        return _react2.default.createElement('div', null);
+	      }
 	    }
 	  }]);
 	
@@ -26116,7 +26121,7 @@
 
 	"use strict";
 	
-	var employeeIDs = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+	var employeeIDs = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36];
 	
 	var profileInformation = [{
 	  pictureUrl: 'headshot0',
@@ -26165,6 +26170,102 @@
 	}, {
 	  pictureUrl: 'headshot11',
 	  name: "Laura Sample",
+	  description: "Lawyer"
+	}, {
+	  pictureUrl: 'headshot0',
+	  name: "Albert Sample1",
+	  description: "Accounting"
+	}, {
+	  pictureUrl: 'headshot1',
+	  name: "Bob Sample1",
+	  description: "Builder"
+	}, {
+	  pictureUrl: 'headshot2',
+	  name: "Carl Sample1",
+	  description: "Cat Walker"
+	}, {
+	  pictureUrl: 'headshot3',
+	  name: "Doug Sample1",
+	  description: "Doctor"
+	}, {
+	  pictureUrl: 'headshot4',
+	  name: "Evan Sample1",
+	  description: "Entertainer"
+	}, {
+	  pictureUrl: 'headshot5',
+	  name: "Francis Sample1",
+	  description: "Fighter"
+	}, {
+	  pictureUrl: 'headshot6',
+	  name: "George Sample1",
+	  description: "Gourmet Chef"
+	}, {
+	  pictureUrl: 'headshot7',
+	  name: "Herminio Garcia1",
+	  description: "Front-End Developer"
+	}, {
+	  pictureUrl: 'headshot8',
+	  name: "Ingrid Sample1",
+	  description: "Inchworm"
+	}, {
+	  pictureUrl: 'headshot9',
+	  name: "Jake Sample1",
+	  description: "Jailer"
+	}, {
+	  pictureUrl: 'headshot10',
+	  name: "Kyle Sample1",
+	  description: "Karate Man"
+	}, {
+	  pictureUrl: 'headshot11',
+	  name: "Laura Sample1",
+	  description: "Lawyer"
+	}, {
+	  pictureUrl: 'headshot0',
+	  name: "Albert Sample2",
+	  description: "Accounting"
+	}, {
+	  pictureUrl: 'headshot1',
+	  name: "Bob Sample2",
+	  description: "Builder"
+	}, {
+	  pictureUrl: 'headshot2',
+	  name: "Carl Sample2",
+	  description: "Cat Walker"
+	}, {
+	  pictureUrl: 'headshot3',
+	  name: "Doug Sample2",
+	  description: "Doctor"
+	}, {
+	  pictureUrl: 'headshot4',
+	  name: "Evan Sample2",
+	  description: "Entertainer"
+	}, {
+	  pictureUrl: 'headshot5',
+	  name: "Francis Sample2",
+	  description: "Fighter"
+	}, {
+	  pictureUrl: 'headshot6',
+	  name: "George Sample2",
+	  description: "Gourmet Chef"
+	}, {
+	  pictureUrl: 'headshot7',
+	  name: "Herminio Garcia2",
+	  description: "Front-End Developer"
+	}, {
+	  pictureUrl: 'headshot8',
+	  name: "Ingrid Sample2",
+	  description: "Inchworm"
+	}, {
+	  pictureUrl: 'headshot9',
+	  name: "Jake Sample2",
+	  description: "Jailer"
+	}, {
+	  pictureUrl: 'headshot10',
+	  name: "Kyle Sample2",
+	  description: "Karate Man"
+	}, {
+	  pictureUrl: 'headshot11',
+	  name: "Laura Sample2",
 	  description: "Lawyer"
 	}];
 	

@@ -47,6 +47,7 @@ class Main extends Component {
     const {employeeIDs, profileInformation} = employeeDB
 
     return employeeIDs.map((id) => {
+      console.log(id)
       return (
         <Thumbnail key={id} {...profileInformation[id]} id={id} />
       )
