@@ -1,0 +1,39 @@
+{
+  "name": "fabfitfun",
+  "version": "1.0.0",
+  "description": "FabFitFun Front End Engineer Role",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.2",
+    "gsap": "^1.20.2",
+    "i": "^0.3.5",
+    "react": "^15.4.0",
+    "react-addons-css-transition-group": "^15.6.0",
+    "react-addons-transition-group": "^15.6.0",
+    "react-dom": "^15.4.0",
+    "react-router-dom": "^4.1.1",
+    "react-select": "^1.0.0-rc.10",
+    "react-tap-event-plugin": "^2.0.1",
+    "react-toggle": "^4.0.1",
+    "react-toolbox": "^2.0.0-beta.10",
+    "react-transition-group": "^2.2.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.17.0",
+    "babel-loader": "^6.2.5",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-react": "^6.16.0",
+    "babel-preset-stage-0": "^6.24.1",
+    "react-redux": "^5.0.6",
+    "redux": "^3.7.2",
+    "redux-thunk": "^2.2.0",
+    "standard": "^10.0.3",
+    "webpack": "^1.13.2"
+  }
+}
