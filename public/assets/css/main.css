@@ -1759,6 +1759,20 @@
 		height: 50%;
 	}
 
+	@media screen and (max-width: 1280px) {
+
+		.post {
+			margin-top: 30%;
+		}
+
+		.mini-posts {
+			width: 80%;
+		}
+
+	}
+
+
+
 		.post > header {
 			display: -moz-flex;
 			display: -webkit-flex;
@@ -2225,6 +2239,7 @@
 
 			.description {
 				font-size: 0.4em;
+				line-height: 1em;
 			}
 			h5 {
 				font-size: 0.5em ;
@@ -2889,6 +2904,6 @@
 				}
 				}
 
-				html {
-					max-width: 1000px;
+				#pane1 #pane2 #pane3 {
+					max-width: 25%;
 				}
