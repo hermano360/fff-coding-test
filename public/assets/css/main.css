@@ -2888,3 +2888,7 @@
 					transform: scale(2) translateX(-450%) translateY(-200%);
 				}
 				}
+
+				html {
+					max-width: 1000px;
+				}

@@ -27,10 +27,10 @@ class Main extends Component {
       let classNamesTransitions = ['firstSlide', 'secondSlide', 'thirdSlide', 'fourthSlide']
       console.log(pictureUrl, name, description, i, profile)
       return (
-        <article key={name} className={`mini-post ${classNamesTransitions[i]}`} style={{visibility: `${empty ? 'hidden': 'visible'}`}} >
+        <article id={`pane${i+1}`} key={name} className={`mini-post ${classNamesTransitions[i]}`} style={{visibility: `${empty ? 'hidden': 'visible'}`}} >
           <div className='row'>
             <div className='7u'>
-              <a href='#' className='image'><img src={`images/${pictureUrl}.jpg`} alt='' /></a>
+              <a id={`thumb${i+1}`} className='image'><img src={`images/${pictureUrl}.jpg`} alt='' /></a>
             </div>
           <div className='5u'>
             <h5>{name}</h5>

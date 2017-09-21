@@ -22277,7 +22277,7 @@
 	        console.log(pictureUrl, name, description, i, profile);
 	        return _react2.default.createElement(
 	          'article',
-	          { key: name, className: 'mini-post ' + classNamesTransitions[i], style: { visibility: '' + (empty ? 'hidden' : 'visible') } },
+	          { id: 'pane' + (i + 1), key: name, className: 'mini-post ' + classNamesTransitions[i], style: { visibility: '' + (empty ? 'hidden' : 'visible') } },
 	          _react2.default.createElement(
 	            'div',
 	            { className: 'row' },
@@ -22286,7 +22286,7 @@
 	              { className: '7u' },
 	              _react2.default.createElement(
 	                'a',
-	                { href: '#', className: 'image' },
+	                { id: 'thumb' + (i + 1), className: 'image' },
 	                _react2.default.createElement('img', { src: 'images/' + pictureUrl + '.jpg', alt: '' })
 	              )
 	            ),
@@ -26126,31 +26126,31 @@
 	var profileInformation = [{
 	  pictureUrl: 'headshot0',
 	  name: "Albert Sample",
-	  description: "Accounting"
+	  description: "Accounting Front-End Developer "
 	}, {
 	  pictureUrl: 'headshot1',
 	  name: "Bob Sample",
-	  description: "Builder"
+	  description: "Builder Front-End Developer "
 	}, {
 	  pictureUrl: 'headshot2',
 	  name: "Carl Sample",
-	  description: "Cat Walker"
+	  description: "Cat Walker Front-End Developer "
 	}, {
 	  pictureUrl: 'headshot3',
 	  name: "Doug Sample",
-	  description: "Doctor"
+	  description: "Doctor Front-End Developer "
 	}, {
 	  pictureUrl: 'headshot4',
 	  name: "Evan Sample",
-	  description: "Entertainer"
+	  description: "Entertainer Front-End Developer "
 	}, {
 	  pictureUrl: 'headshot5',
 	  name: "Francis Sample",
-	  description: "Fighter"
+	  description: "Fighter Front-End Developer "
 	}, {
 	  pictureUrl: 'headshot6',
 	  name: "George Sample",
-	  description: "Gourmet Chef"
+	  description: "Gourmet Chef Front-End Developer "
 	}, {
 	  pictureUrl: 'headshot7',
 	  name: "Herminio Garcia",
@@ -26158,115 +26158,115 @@
 	}, {
 	  pictureUrl: 'headshot8',
 	  name: "Ingrid Sample",
-	  description: "Inchworm"
+	  description: "Inchworm Front-End Developer "
 	}, {
 	  pictureUrl: 'headshot9',
 	  name: "Jake Sample",
-	  description: "Jailer"
+	  description: "Jailer Front-End Developer "
 	}, {
 	  pictureUrl: 'headshot10',
 	  name: "Kyle Sample",
-	  description: "Karate Man"
+	  description: "Karate Man Front-End Developer "
 	}, {
 	  pictureUrl: 'headshot11',
 	  name: "Laura Sample",
-	  description: "Lawyer"
+	  description: "Lawyer \n Front-End Developer "
 	}, {
 	  pictureUrl: 'headshot0',
 	  name: "Albert Sample1",
-	  description: "Accounting"
+	  description: "Accounting Front-End Developer "
 	}, {
 	  pictureUrl: 'headshot1',
 	  name: "Bob Sample1",
-	  description: "Builder"
+	  description: "Builder Front-End Developer "
 	}, {
 	  pictureUrl: 'headshot2',
 	  name: "Carl Sample1",
-	  description: "Cat Walker"
+	  description: "Cat Walker Front-End Developer "
 	}, {
 	  pictureUrl: 'headshot3',
 	  name: "Doug Sample1",
-	  description: "Doctor"
+	  description: "Doctor Front-End Developer "
 	}, {
 	  pictureUrl: 'headshot4',
 	  name: "Evan Sample1",
-	  description: "Entertainer"
+	  description: "Entertainer Front-End Developer "
 	}, {
 	  pictureUrl: 'headshot5',
 	  name: "Francis Sample1",
-	  description: "Fighter"
+	  description: "Fighter Front-End Developer "
 	}, {
 	  pictureUrl: 'headshot6',
 	  name: "George Sample1",
-	  description: "Gourmet Chef"
+	  description: "Gourmet Chef Front-End Developer "
 	}, {
 	  pictureUrl: 'headshot7',
 	  name: "Herminio Garcia1",
-	  description: "Front-End Developer"
+	  description: "Front-End Developer Front-End Developer "
 	}, {
 	  pictureUrl: 'headshot8',
 	  name: "Ingrid Sample1",
-	  description: "Inchworm"
+	  description: "InchwormFront-End Developer "
 	}, {
 	  pictureUrl: 'headshot9',
 	  name: "Jake Sample1",
-	  description: "Jailer"
+	  description: "Jailer Front-End Developer "
 	}, {
 	  pictureUrl: 'headshot10',
 	  name: "Kyle Sample1",
-	  description: "Karate Man"
+	  description: "Karate Man Front-End Developer Front-End Developer"
 	}, {
 	  pictureUrl: 'headshot11',
 	  name: "Laura Sample1",
-	  description: "Lawyer"
+	  description: "Lawyer Front-End Developer "
 	}, {
 	  pictureUrl: 'headshot0',
 	  name: "Albert Sample2",
-	  description: "Accounting"
+	  description: "Accounting Front-End Developer "
 	}, {
 	  pictureUrl: 'headshot1',
 	  name: "Bob Sample2",
-	  description: "Builder"
+	  description: "Builder Front-End Developer "
 	}, {
 	  pictureUrl: 'headshot2',
 	  name: "Carl Sample2",
-	  description: "Cat Walker"
+	  description: "Cat Walker Front-End Developer "
 	}, {
 	  pictureUrl: 'headshot3',
 	  name: "Doug Sample2",
-	  description: "Doctor"
+	  description: "Doctor Front-End Developer "
 	}, {
 	  pictureUrl: 'headshot4',
 	  name: "Evan Sample2",
-	  description: "Entertainer"
+	  description: "Entertainer Front-End Developer "
 	}, {
 	  pictureUrl: 'headshot5',
 	  name: "Francis Sample2",
-	  description: "Fighter"
+	  description: "Fighter Front-End Developer "
 	}, {
 	  pictureUrl: 'headshot6',
 	  name: "George Sample2",
-	  description: "Gourmet Chef"
+	  description: "Gourmet Chef Front-End Developer "
 	}, {
 	  pictureUrl: 'headshot7',
 	  name: "Herminio Garcia2",
-	  description: "Front-End Developer"
+	  description: "Front-End Developer "
 	}, {
 	  pictureUrl: 'headshot8',
 	  name: "Ingrid Sample2",
-	  description: "Inchworm"
+	  description: "Inchworm Front-End Developer "
 	}, {
 	  pictureUrl: 'headshot9',
 	  name: "Jake Sample2",
-	  description: "Jailer"
+	  description: "Jailer Front-End Developer "
 	}, {
 	  pictureUrl: 'headshot10',
 	  name: "Kyle Sample2",
-	  description: "Karate Man"
+	  description: "Karate Man Front-End Developer "
 	}, {
 	  pictureUrl: 'headshot11',
 	  name: "Laura Sample2",
-	  description: "Lawyer"
+	  description: "Lawyer Front-End Developer "
 	}];
 	
 	module.exports = {
