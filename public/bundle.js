@@ -22273,10 +22273,11 @@
 	          description = '';
 	          empty = true;
 	        }
+	        var classNamesTransitions = ['firstSlide', 'secondSlide', 'thirdSlide', 'fourthSlide'];
 	        console.log(pictureUrl, name, description, i, profile);
 	        return _react2.default.createElement(
 	          'article',
-	          { key: i, className: 'mini-post', style: { visibility: '' + (empty ? 'hidden' : 'visible'), left: i * 33.33 + '%' } },
+	          { key: name, className: 'mini-post ' + classNamesTransitions[i], style: { visibility: '' + (empty ? 'hidden' : 'visible') } },
 	          _react2.default.createElement(
 	            'div',
 	            { className: 'row' },
@@ -22325,6 +22326,7 @@
 	      return _react2.default.createElement(
 	        'div',
 	        { id: 'wrapper' },
+	        _react2.default.createElement('div', { className: 'testSquare' }),
 	        _react2.default.createElement(
 	          'div',
 	          { id: 'main' },
@@ -23660,7 +23662,7 @@
 	            { className: '7u' },
 	            _react2.default.createElement(
 	              'a',
-	              { href: '#', className: 'image' },
+	              { href: '#', className: 'image profile-image' },
 	              _react2.default.createElement('img', { src: 'images/' + pictureUrl + '.jpg', alt: '' })
 	            )
 	          ),
@@ -26026,7 +26028,10 @@
 	  function Thumbnail() {
 	    _classCallCheck(this, Thumbnail);
 	
-	    return _possibleConstructorReturn(this, (Thumbnail.__proto__ || Object.getPrototypeOf(Thumbnail)).call(this));
+	    var _this = _possibleConstructorReturn(this, (Thumbnail.__proto__ || Object.getPrototypeOf(Thumbnail)).call(this));
+	
+	    _this.sendThumbnailToState = _this.sendThumbnailToState.bind(_this);
+	    return _this;
 	  }
 	
 	  _createClass(Thumbnail, [{
@@ -26036,22 +26041,28 @@
 	          dispatch = _props.dispatch,
 	          name = _props.name,
 	          pictureUrl = _props.pictureUrl,
+	          profiles = _props.profiles,
 	          description = _props.description,
 	          id = _props.id;
 	
 	      console.log(this.props);
 	      dispatch(actions.addProfile(id, name, description, pictureUrl));
+	      dispatch(actions.updateLastClickedThumbnail(id));
 	    }
 	  }, {
 	    key: 'render',
 	    value: function render() {
 	      var _this2 = this;
 	
-	      var pictureUrl = this.props.pictureUrl;
+	      var _props2 = this.props,
+	          pictureUrl = _props2.pictureUrl,
+	          id = _props2.id,
+	          lastThumbNail = _props2.lastThumbNail;
 	
 	      return _react2.default.createElement(
 	        'div',
-	        { className: '1u' },
+	        { className: '1u thumbnail-row thumbnail-absolute ' + (lastThumbNail === id ? 'tn-position-' + id : ''),
+	          style: { left: id * 100 / 12 + '%' } },
 	        _react2.default.createElement(
 	          'span',
 	          { className: 'image fit thumbnail' },
@@ -26066,7 +26077,12 @@
 	  return Thumbnail;
 	}(_react.Component);
 	
-	exports.default = connect()(Thumbnail);
+	exports.default = connect(function (state) {
+	  return {
+	    profiles: state.profiles,
+	    lastThumbNail: state.lastThumbNail
+	  };
+	})(Thumbnail);
 
 /***/ }),
 /* 241 */
@@ -26084,6 +26100,13 @@
 	    name: name,
 	    description: description,
 	    pictureUrl: pictureUrl
+	  };
+	};
+	
+	var updateLastClickedThumbnail = exports.updateLastClickedThumbnail = function updateLastClickedThumbnail(id) {
+	  return {
+	    type: 'UPDATE_LAST_CLICKED_THUMBNAIL',
+	    id: id
 	  };
 	};
 
@@ -26106,11 +26129,11 @@
 	}, {
 	  pictureUrl: 'headshot2',
 	  name: "Carl Sample",
-	  description: "Calorie Counter"
+	  description: "Cat Walker"
 	}, {
 	  pictureUrl: 'headshot3',
 	  name: "Doug Sample",
-	  description: "Derelict"
+	  description: "Doctor"
 	}, {
 	  pictureUrl: 'headshot4',
 	  name: "Evan Sample",
@@ -26122,7 +26145,7 @@
 	}, {
 	  pictureUrl: 'headshot6',
 	  name: "George Sample",
-	  description: "Gorilla"
+	  description: "Gourmet Chef"
 	}, {
 	  pictureUrl: 'headshot7',
 	  name: "Herminio Garcia",
@@ -26570,16 +26593,19 @@
 	var thunk = __webpack_require__(250).default;
 	
 	var _require = __webpack_require__(251),
-	    ProfileReducer = _require.ProfileReducer;
+	    ProfileReducer = _require.ProfileReducer,
+	    ThumbnailReducer = _require.ThumbnailReducer;
 	
 	var configure = exports.configure = function configure() {
 	  var initialState = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
 	
 	  var reducer = redux.combineReducers({
-	    profiles: ProfileReducer
+	    profiles: ProfileReducer,
+	    lastThumbNail: ThumbnailReducer
 	  });
 	  initialState = {
-	    profiles: []
+	    profiles: [],
+	    lastThumbNail: ''
 	  };
 	  var store = redux.createStore(reducer, initialState, redux.compose(redux.applyMiddleware(thunk), window.devToolsExtension ? window.devToolsExtension() : function (f) {
 	    return f;
@@ -26639,10 +26665,9 @@
 	        }
 	      });
 	      // Need to ensure the profile showcase is only latest 3 profiles
-	      if (updatedState.length === 3) {
+	      if (updatedState.length === 4) {
 	        updatedState.pop();
 	      }
-	
 	      updatedState.unshift({
 	        pictureUrl: action.pictureUrl,
 	        name: action.name,
@@ -26652,6 +26677,18 @@
 	
 	      // Adds latest profile
 	      return updatedState;
+	    default:
+	      return state;
+	  }
+	};
+	
+	var ThumbnailReducer = exports.ThumbnailReducer = function ThumbnailReducer() {
+	  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '';
+	  var action = arguments[1];
+	
+	  switch (action.type) {
+	    case 'UPDATE_LAST_CLICKED_THUMBNAIL':
+	      return action.id;
 	    default:
 	      return state;
 	  }

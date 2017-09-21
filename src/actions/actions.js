@@ -7,3 +7,10 @@ export const addProfile = (id, name, description, pictureUrl) => {
     pictureUrl
   }
 }
+
+export const updateLastClickedThumbnail = (id) => {
+  return {
+    type: 'UPDATE_LAST_CLICKED_THUMBNAIL',
+    id
+  }
+}

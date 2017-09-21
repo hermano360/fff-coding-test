@@ -24,9 +24,10 @@ class Main extends Component {
         description = ''
         empty = true
       }
+      let classNamesTransitions = ['firstSlide', 'secondSlide', 'thirdSlide', 'fourthSlide']
       console.log(pictureUrl, name, description, i, profile)
       return (
-        <article key={i} className='mini-post' style={{visibility: `${empty ? 'hidden': 'visible'}`, left: `${i*33.33}%`}} >
+        <article key={name} className={`mini-post ${classNamesTransitions[i]}`} style={{visibility: `${empty ? 'hidden': 'visible'}`}} >
           <div className='row'>
             <div className='7u'>
               <a href='#' className='image'><img src={`images/${pictureUrl}.jpg`} alt='' /></a>
@@ -55,6 +56,7 @@ class Main extends Component {
   render () {
     return (
       <div id="wrapper">
+        <div className='testSquare'></div>
         <div id="main">
           <section id="intro">
             <header>

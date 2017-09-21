@@ -14,12 +14,12 @@ const profileInformation = [
   {
     pictureUrl: 'headshot2',
     name: "Carl Sample",
-    description: "Calorie Counter"
+    description: "Cat Walker"
   },
   {
     pictureUrl: 'headshot3',
     name: "Doug Sample",
-    description: "Derelict"
+    description: "Doctor"
   },
   {
     pictureUrl: 'headshot4',
@@ -34,7 +34,7 @@ const profileInformation = [
   {
     pictureUrl: 'headshot6',
     name: "George Sample",
-    description: "Gorilla"
+    description: "Gourmet Chef"
   },
   {
     pictureUrl: 'headshot7',

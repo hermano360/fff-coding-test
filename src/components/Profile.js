@@ -24,7 +24,7 @@ class Profile extends Component {
       <article className='mini-post' style={{visibility: `${empty ? 'hidden': 'visible'}`, transition: 'all 1s ease-in', left: `${this.props.id*33.33}%`}} >
         <div className='row'>
           <div className='7u'>
-            <a href='#' className='image'><img src={`images/${pictureUrl}.jpg`} alt='' /></a>
+            <a href='#' className='image profile-image'><img src={`images/${pictureUrl}.jpg`} alt='' /></a>
           </div>
         <div className='5u'>
           <h5>{name}</h5>

@@ -10,10 +10,9 @@ export const ProfileReducer = (state = [], action) => {
         }
       })
       // Need to ensure the profile showcase is only latest 3 profiles
-      if(updatedState.length === 3) {
+      if(updatedState.length === 4) {
         updatedState.pop()
       }
-
       updatedState.unshift({
         pictureUrl: action.pictureUrl,
         name: action.name,
@@ -23,6 +22,15 @@ export const ProfileReducer = (state = [], action) => {
 
       // Adds latest profile
       return updatedState
+    default:
+      return state
+  }
+}
+
+export const ThumbnailReducer = (state = '', action) => {
+  switch (action.type) {
+    case 'UPDATE_LAST_CLICKED_THUMBNAIL':
+      return action.id
     default:
       return state
   }
